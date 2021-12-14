@@ -7,7 +7,10 @@ def getAccounts():
     result = []
 
     # Classic method
-    result.append((os.environ["USERNAME"], os.environ["PASSWORD"], os.getenv("ORGID", "172442")))
+    username=os.environ["USERNAME"]
+    passwd=os.environ["PASSWORD"]
+    if username and passwd:
+        result.append((username,passwd,os.getenv("ORGID", "172442")))
 
     # New method
     account = os.getenv("ACCOUNT", "")
